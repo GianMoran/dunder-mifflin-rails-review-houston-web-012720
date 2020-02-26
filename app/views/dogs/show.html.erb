@@ -1,0 +1,15 @@
+<label>Name:</label>
+<%=@dog.name%> <br>
+<label>Breed:</label>
+<%=@dog.breed%><br>
+<label>Age:</label>
+<%=@dog.age%><br>
+
+<%@dog.employees.each do |employee|%>
+<%=link_to employee.first_name, employee_path(employee)%>
+<%end%>
+
+
+<%=form_with model: @dog , method: :delete do |f|%>
+<%=f.submit "Delete Dog"%>
+<%end%>
