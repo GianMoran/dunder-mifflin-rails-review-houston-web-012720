@@ -5,7 +5,7 @@
 <p>Alias: <%= @employee.alias%></p><br>
 <p>Title: <%= @employee.title%></p><br>
 <p>Office: <%= @employee.office%></p><br>
-<p>Dog: <%= @employee.dog.name%></p><br>
+<p>Dog: <%= link_to@employee.dog.name, dog_path(@employee.dog)<%></p><br>
 
 
 <%= form_with model: @employee, method: :delete do |f|  %>
