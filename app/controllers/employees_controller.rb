@@ -14,10 +14,15 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     employee = Employee.create(employee_params(:first_name, :last_name, :alias, :title, :office, :dog_id))
 
-    redirect_to employee
+    if employee.valid?
+      redirect_to employee
+    else
+      flash[:errors] = employee.errors.full_messages
+      redirect_to new_employee_path
+    end
   end
 
   def edit
@@ -27,7 +32,12 @@ class EmployeesController < ApplicationController
   def update
     @employee.update(employee_params(:first_name, :last_name, :alias, :title, :office, :dog_id))
 
-    redirect_to @employee
+    if @employee.valid?
+        redirect_to @employee
+    else
+      flash[:errors] = @employee.errors.full_messages
+      redirect_to edit_employee_path
+    end
   end
 
   def destroy
