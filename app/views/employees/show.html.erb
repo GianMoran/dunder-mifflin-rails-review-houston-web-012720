@@ -1,0 +1,13 @@
+<h1>Employee Information</h1>
+
+<img src=<%= @employee.img_url %>>
+<p>Name: <%= @employee.full_name%></p><br>
+<p>Alias: <%= @employee.alias%></p><br>
+<p>Title: <%= @employee.title%></p><br>
+<p>Office: <%= @employee.office%></p><br>
+<p>Dog: <%= @employee.dog.name%></p><br>
+
+
+<%= form_with model: @employee, method: :delete do |f|  %>
+<%= f.submit "Delete Employee" %>
+<% end %>
