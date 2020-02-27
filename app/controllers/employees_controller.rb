@@ -14,7 +14,6 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    # byebug
     employee = Employee.create(employee_params(:first_name, :last_name, :alias, :title, :office, :dog_id))
 
     if employee.valid?
